@@ -1,0 +1,53 @@
+{% load static %}
+
+<header class="header-area" id="sticky-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="header-bottom">
+                     <div class="row">
+                        <div class="col-md-3 col-sm-9 col-xs-6">
+                            <div class="logo">
+                                <a href="{% url 'home' %}">
+                                    <img src="{% static 'images/logo.png' %}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-8 hidden-sm hidden-xs">
+                            <div class="mainmenu text-right">
+                                <ul id="navigation">
+                                    <li class="active"><a href="{% url 'home' %}">Главная</a></li>
+                                    <li><a href="service.html">Service</a></li>
+                                    <li><a href="#">PAGES</a></li>
+                                    <li><a href="blog.html">Блог</a></li>
+                                    <li><a href="shop.html">Shop</a></li>
+                                    <li><a href="team.html">Мастера</a></li>
+                                    <li><a href="contact.html">Контакты</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-1 col-sm-2 col-xs-4">
+                            <div class="search-wrap text-right">
+                                <ul>
+                                    <li><a href="javascript:void(0);"><i class="fa fa-search"></i></a>
+                                        <ul>
+                                            <li>
+                                                <form action="#">
+                                                    <input type="text" placeholder="Search Here...">
+                                                    <button><i class="fa fa-search"></i></button>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class=" col-xs-2 col-sm-1 hidden-md hidden-lg">
+                            <div class="responsive-menu-wrap floatright"></div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
