@@ -1,3 +1,17 @@
-from django.shortcuts import render
+from django.views.generic import ListView, DetailView
 
-# Create your views here.
+from .models import Master, WorksTattooMasters
+
+
+class MastersListView(ListView):
+    """Выводит список мастеров"""
+    model = Master
+    context_object_name = 'masters'
+    template_name = 'master/masters_list.html'
+
+
+class MasterDetailView(DetailView):
+    """Выводит информацию о конкретном мастере"""
+    model = Master
+    context_object_name = 'master'
+    template_name = 'master/master_detail.html'
