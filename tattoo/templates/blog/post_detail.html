@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="breadcumb-area bg-img-5 black-opacity">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="breadcumb-wrap text-center">
+                    <h2>{{ post.title }}</h2>
+                    <ul>
+                        <li><a href="{% url 'home' %}">Главная</a></li>
+                        <li>/</li>
+                        <li><a href="{% url 'posts_list' %}">Блог</a></li>
+                        <li>/</li>
+                        <li class="active">{{ post.title|truncatewords_html:5 }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="blog-details-area bg-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-xs-12">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="blog-wrap">
+                            <div class="blog-img">
+                                <img src="{{ post.image.url }}" alt="">
+                            </div>
+                            <div class="blog-content">
+                                <ul class="blog-meta">
+                                    <li><a href="#"><i class="fa fa-clock-o"></i> {{ post.created_at|date:"j" }} {{ post.created_at|date:"E" }}, {{ post.created_at|date:"Y" }}</a></li>
+                                    <li><a href="#"><i class="fa fa-user"></i> {{ post.author }}</a></li>
+                                    <li><a href="#"><i class="fa fa-comments"></i> 4</a></li>
+                                </ul>
+                                <h3>{{ post.title }}</h3>
+                            </div>
+                        </div>
+                        <div class="blog-details-wrap">
+                            <p>{{ post.content|safe }}</p>
+
+                            <div class="socila-link">
+                                <ul>
+                                    <li>Share :</li>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+                                </ul>
+                            </div>
+
+                            <div class="blog-form">
+                                <h3>Leave A Comment</h3>
+                                <form action="#">
+                                    <span>Name</span>
+                                    <input type="text" placeholder="Your name">
+                                    <span>Email</span>
+                                    <input type="email" placeholder="Your Email">
+                                    <span>Your Comment</span>
+                                    <textarea name="massage" cols="30" rows="10" placeholder="Your massage"></textarea>
+                                    <button>Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12 col-sm-6">
+                {% include 'include/sidebar.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
