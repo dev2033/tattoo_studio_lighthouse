@@ -18,12 +18,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'debug_toolbar',
     'ckeditor',
     'ckeditor_uploader',
-    'debug_toolbar',
 
     'blog',
-    'master'
+    'master',
+    'contact'
 ]
 
 MIDDLEWARE = [
@@ -103,6 +104,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
+TOKEN_BOT = '1418476569:AAFM3y0nJWyfBVw_B2ySrnQ9I7nXal4g9o8'
+# https://api.telegram.org/bot1418476569:AAFM3y0nJWyfBVw_B2ySrnQ9I7nXal4g9o8/sendmessage?chat_id=939392408&text=123123
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True

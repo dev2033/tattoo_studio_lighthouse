@@ -19,7 +19,8 @@
                                     <li class="{% if request.path == '/' %}active{% endif %}"><a href="{% url 'home' %}">Главная</a></li>
                                     <li class="{% if request.path == '/posts-list/' %}active{% endif %}"><a href="{% url 'posts_list' %}">Блог</a></li>
                                     <li class="{% if request.path == '/masters/' %}active{% endif %}"><a href="{% url 'masters_list' %}">Мастера</a></li>
-                                    <li class=""><a href="contact.html">Контакты</a></li>
+                                    <li class="{% if request.path == '/contact/' %}active{% endif %}"><a href="{% url 'contact' %}">Контакты</a></li>
+                                    <li class=""><a href="contact.html">О нас</a></li>
                                 </ul>
                             </div>
                         </div>

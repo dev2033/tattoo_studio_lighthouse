@@ -28,9 +28,15 @@
                         <div class="socil-icon">
                             <ul>
                                 <li>Соц. сети :</li>
-                                <li><a href="{{ master.vk }}"><i class="fa fa-vk"></i></a></li>
-                                <li><a href="{{ master.instagram }}"><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="{{ master.telegram }}"><i class="fa fa-paper-plane"></i></a></li>
+                                {% if master.vk %}
+                                    <li><a href="{{ master.vk }}"><i class="fa fa-vk"></i></a></li>
+                                {% endif %}
+                                {% if master.instagram %}
+                                    <li><a href="{{ master.instagram }}"><i class="fa fa-instagram"></i></a></li>
+                                {% endif %}
+                                {% if master.telegram %}
+                                    <li><a href="{{ master.telegram }}"><i class="fa fa-paper-plane"></i></a></li>
+                                {% endif %}
                             </ul>
                         </div>
                     </div>

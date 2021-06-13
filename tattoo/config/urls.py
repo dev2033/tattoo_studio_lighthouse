@@ -12,6 +12,7 @@ urlpatterns = [
 
     path('', include('blog.urls')),
     path('masters/', include('master.urls')),
+    path('contact/', include('contact.urls')),
 ]
 
 if settings.DEBUG:
