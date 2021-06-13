@@ -2178,3 +2178,17 @@ a.appoinment-btn:hover{
   border:none;
 }
 /* -------- cart-area end ----------*/
+.single-post__comment {
+    margin-bottom: 20px;
+}
+.single-post__comment__item__text {
+    overflow: hidden;
+    position: relative;
+}
+.single-post__comment__item__text p {
+    font-size: 15px;
+}
+.single-post__comment__item__text h5 {
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}

@@ -1,6 +1,6 @@
 
     <ul>
         {% for tag in tags %}
-        <li><a href="#">{{ tag.title }}</a> </li>
+        <li><a href="{{ tag.get_absolute_url }}">{{ tag.title }} ({{ tag.post_tags.count }})</a></li>
         {% endfor %}
     </ul>

@@ -24,6 +24,9 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('post_detail', kwargs={'slug': self.slug})
 
+    def get_comments(self):
+        return self.comment.all().order_by('-id')[:5]
+
     class Meta:
         verbose_name = "Пост"
         verbose_name_plural = "Посты"
@@ -39,12 +42,31 @@ class Tag(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('tag', kwargs={'slug': self.slug})
+        return reverse('tag_detail', kwargs={'slug': self.slug})
 
     class Meta:
         verbose_name = 'Тег'
         verbose_name_plural = 'Теги'
         ordering = ['-title']
+
+
+class Comment(models.Model):
+    """Комментарии"""
+    name = models.CharField('Имя', max_length=50)
+    email = models.CharField('Email', max_length=100)
+    message = models.TextField('Сообщение', max_length=500)
+    create_at = models.DateTimeField('Дата', auto_now_add=True)
+    post = models.ForeignKey(Post, related_name="comment",
+                             on_delete=models.CASCADE,
+                             verbose_name='Пост')
+
+    def __str__(self):
+        return f'{self.name} - {self.email} - {self.create_at}'
+
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
+        ordering = ['-name']
 
 
 

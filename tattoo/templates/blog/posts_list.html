@@ -33,7 +33,7 @@
                             <ul class="blog-meta">
                                 <li><a href="#"><i class="fa fa-clock-o"></i> {{ post.created_at|date:"j" }} {{ post.created_at|date:"E" }}, {{ post.created_at|date:"Y" }}</a></li>
                                 <li><a href="#"><i class="fa fa-user"></i> {{ post.author }}</a></li>
-                                <li><a href="#"><i class="fa fa-comments"></i> 4</a></li>
+                                <li><a href="#"><i class="fa fa-comments"></i> {{ post.get_comments.count }}</a></li>
                             </ul>
                             <h3>{{ post.title }}</h3>
                             <p>{{ post.content|truncatewords_html:20|safe }}</p>

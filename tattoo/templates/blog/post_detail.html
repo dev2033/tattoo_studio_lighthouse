@@ -34,7 +34,7 @@
                                 <ul class="blog-meta">
                                     <li><a href="#"><i class="fa fa-clock-o"></i> {{ post.created_at|date:"j" }} {{ post.created_at|date:"E" }}, {{ post.created_at|date:"Y" }}</a></li>
                                     <li><a href="#"><i class="fa fa-user"></i> {{ post.author }}</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i> 4</a></li>
+                                    <li><a href="#"><i class="fa fa-comments"></i> {{ post.get_comments.count }}</a></li>
                                 </ul>
                                 <h3>{{ post.title }}</h3>
                             </div>
@@ -52,17 +52,35 @@
                                     <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
                                 </ul>
                             </div>
-
+                            <div class="container single-post__comment">
+                            {% for comment in post.get_comments %}
+                            <ul>
+                                <li>
+                                    <div class="post-img">
+                                        <img src="/static/images/shop/1.png" alt="" style="padding: 4%; width: 98px">
+                                    </div>
+                                    <div class="single-post__comment__item__text">
+                                        <h5>{{ comment.name }}</h5>
+                                        <p>{{ comment.message|safe }}</p>
+                                        <p>{{ comment.create_at|date:"j" }} {{ comment.create_at|date:"E" }}, {{ comment.create_at|date:"Y" }}</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            {% endfor %}
+                            </div>
+                            <br><br>
                             <div class="blog-form">
-                                <h3>Leave A Comment</h3>
-                                <form action="#">
-                                    <span>Name</span>
-                                    <input type="text" placeholder="Your name">
+                                <h3>Написать комментарий</h3>
+                                <form action="{% url 'create_comment' pk=post.id %}" method="post">
+                                    {% csrf_token %}
+                                    <span>Имя</span>
+                                    {{ form.name }}
                                     <span>Email</span>
-                                    <input type="email" placeholder="Your Email">
-                                    <span>Your Comment</span>
-                                    <textarea name="massage" cols="30" rows="10" placeholder="Your massage"></textarea>
-                                    <button>Submit</button>
+                                    {{ form.email }}
+                                    <span>Ваш комментарий</span>
+                                    {{ form.message }}
+<!--                                    <textarea name="massage" cols="30" rows="10" placeholder="Your massage"></textarea>-->
+                                    <button>Отправить</button>
                                 </form>
                             </div>
                         </div>

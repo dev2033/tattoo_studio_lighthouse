@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import View, ListView, DetailView
+from django.views.generic import View, ListView, DetailView, CreateView
 
-from .models import Post, Tag
+from .models import Post, Tag, Comment
+from .forms import CommentForm
 
 
 class BaseView(View):
@@ -24,6 +25,11 @@ class PostDetail(DetailView):
     context_object_name = 'post'
     template_name = 'blog/post_detail.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = CommentForm()
+        return context
+
 
 class SearchPostsListView(ListView):
     """Поиск постов"""
@@ -37,4 +43,34 @@ class SearchPostsListView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['s'] = f"s={self.request.GET.get('s')}&"
+        return context
+
+
+class CreateComment(CreateView):
+    """Создание комментария"""
+    model = Comment
+    form_class = CommentForm
+
+    def form_valid(self, form):
+        form.instance.post_id = self.kwargs.get('pk')
+        self.object = form.save()
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return self.object.post.get_absolute_url()
+
+
+class PostsByTagListView(ListView):
+    """Выводит записи по тегу"""
+    template_name = 'blog/posts_list.html'
+    context_object_name = 'posts'
+    paginate_by = 9
+
+    def get_queryset(self):
+        return Post.objects.filter(tags__slug=self.kwargs['slug'])
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Записи по тегу: ' + str(
+            Tag.objects.get(slug=self.kwargs['slug']))
         return context

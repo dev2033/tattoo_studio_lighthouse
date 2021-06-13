@@ -3,9 +3,13 @@ from django import forms
 from django.utils.safestring import mark_safe
 
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
-from django.forms import ModelForm
 
 from . import models
+
+
+@admin.register(models.Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['name', 'email', 'create_at', 'id']
 
 
 class PostAdminForm(forms.ModelForm):
