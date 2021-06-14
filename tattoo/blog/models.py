@@ -53,7 +53,7 @@ class Tag(models.Model):
 class Comment(models.Model):
     """Комментарии"""
     name = models.CharField('Имя', max_length=50)
-    email = models.CharField('Email', max_length=100)
+    telegram_username = models.CharField('Username', max_length=100)
     message = models.TextField('Сообщение', max_length=500)
     create_at = models.DateTimeField('Дата', auto_now_add=True)
     post = models.ForeignKey(Post, related_name="comment",
@@ -61,7 +61,7 @@ class Comment(models.Model):
                              verbose_name='Пост')
 
     def __str__(self):
-        return f'{self.name} - {self.email} - {self.create_at}'
+        return self.telegram_username
 
     class Meta:
         verbose_name = 'Комментарий'

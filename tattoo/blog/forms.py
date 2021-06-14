@@ -10,7 +10,7 @@ class CommentForm(forms.ModelForm):
         exclude = ['create_at', 'post']
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Ваше имя'}),
-            'email': forms.EmailInput(attrs={'placeholder': 'Email'}),
+            'telegram_username': forms.TextInput(attrs={'placeholder': '@username'}),
             'message': forms.Textarea(attrs={
                 'placeholder': 'Текст сообщения',
                 'name': 'massage',

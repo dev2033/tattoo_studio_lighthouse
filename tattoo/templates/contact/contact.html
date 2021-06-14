@@ -7,11 +7,11 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="breadcumb-wrap text-center">
-                        <h2>Contact us</h2>
+                        <h2>Контакты</h2>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="{% url 'home' %}">Главная</a></li>
                             <li>/</li>
-                            <li class="active">contact</li>
+                            <li class="active">Контакты</li>
                         </ul>
                     </div>
                 </div>
@@ -30,19 +30,19 @@
 
                                 <div class="row">
                                     <div class="col-md-6 col-xs-12">
+                                        <span>Имя</span>
                                         {{ form.name }}
                                     </div>
                                     <div class="col-md-6 col-xs-12">
-                                        {{ form.telegram_id }}
+                                        <span>Telegram Username</span>
+                                        {{ form.telegram_username }}
                                     </div>
-<!--                                    <div class="col-md-12 col-sm-12 col-xs-12">-->
-<!--                                        <input type="text" placeholder="Subject" id="subject" name="subject">-->
-<!--                                    </div>-->
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-md-12  col-xs-12">
+                                        <span>Сообщение</span>
                                         {{ form.message }}
                                     </div>
                                     <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <button type="submit">SEND MESSAGE</button>
+                                        <button type="submit">Отправить</button>
                                     </div>
                                 </div>
                             </form>

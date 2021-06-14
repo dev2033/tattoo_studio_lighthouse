@@ -4,16 +4,15 @@ from .models import ContactModel
 
 
 class ContactForm(forms.ModelForm):
-    """Форма комментариев"""
+    """Форма обратной связи"""
     class Meta:
         model = ContactModel
-        fields = ('name', 'telegram_id', 'message')
+        fields = ('name', 'telegram_username', 'message')
         widgets = {
             'name': forms.TextInput(attrs={
                 'placeholder': 'Ваше имя', 'id': 'fname', 'name': 'fname'}),
-
-            'telegram_id': forms.TextInput(attrs={
-                'placeholder': 'Телеграм ID', 'id': 'tg_id'}),
+            'telegram_username': forms.TextInput(attrs={
+                'placeholder': '@username', 'subject': 'subject'}),
             'message': forms.Textarea(attrs={
                 'placeholder': 'Текст сообщения',
                 'name': 'msg',

@@ -24,7 +24,8 @@ INSTALLED_APPS = [
 
     'blog',
     'master',
-    'contact'
+    'contact',
+    'gallery'
 ]
 
 MIDDLEWARE = [
@@ -105,14 +106,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 TOKEN_BOT = '1418476569:AAFM3y0nJWyfBVw_B2ySrnQ9I7nXal4g9o8'
-# https://api.telegram.org/bot1418476569:AAFM3y0nJWyfBVw_B2ySrnQ9I7nXal4g9o8/sendmessage?chat_id=939392408&text=123123
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-EMAIL_PORT = 587
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

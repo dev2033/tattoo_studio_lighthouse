@@ -9,7 +9,7 @@ from . import models
 
 @admin.register(models.Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ['name', 'email', 'create_at', 'id']
+    list_display = ['name', 'telegram_username', 'create_at', 'id']
 
 
 class PostAdminForm(forms.ModelForm):
