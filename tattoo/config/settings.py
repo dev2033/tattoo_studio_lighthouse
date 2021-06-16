@@ -105,7 +105,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
-TOKEN_BOT = '1418476569:AAFM3y0nJWyfBVw_B2ySrnQ9I7nXal4g9o8'
+TOKEN_BOT = '1418476569:AAHyaiiPghlF83fHaLZrIcHgXgr2Snj0J4k'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

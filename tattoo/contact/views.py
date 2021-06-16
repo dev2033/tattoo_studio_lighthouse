@@ -1,10 +1,11 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.views.generic import CreateView, View
+from django.views.generic import View
 from django.conf import settings
 import requests
 
 from .forms import ContactForm
+from .utils import get_client_ip
 from master.models import Master
 
 
