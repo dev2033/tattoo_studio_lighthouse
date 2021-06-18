@@ -5,7 +5,6 @@ from django.conf import settings
 import requests
 
 from .forms import ContactForm
-from .utils import get_client_ip
 from master.models import Master
 
 
@@ -16,8 +15,7 @@ class ContactView(View):
 
 
 class ContactSendView(View):
-    """Контактная форма"""
-
+    """Отправляет сообщение из контактной формы в Telegram администраторам"""
     def post(self, request, *args, **kwargs):
         form = ContactForm(request.POST or None)
         if form.is_valid():

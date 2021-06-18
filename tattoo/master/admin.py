@@ -1,4 +1,4 @@
-from django.contrib import admin
+from django.contrib import admin, messages
 from django import forms
 from django.utils.safestring import mark_safe
 
@@ -8,7 +8,7 @@ from django.forms import ModelForm
 from . import models
 
 
-class MasterAdminForm(ModelForm):
+class MasterAdminAdminForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -28,12 +28,36 @@ class MasterAdminForm(ModelForm):
         fields = '__all__'
 
 
+class MasterSkillsAdminForm(ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['name'].help_text = \
+            mark_safe(
+                """
+                <span style="color:white; font-size:12px;">
+                    Например: название категории татуировки - Блекворк, Олд-скул.
+                </span>
+                """)
+        self.fields['value'].help_text = \
+            mark_safe(
+                """
+                <span style="color:white; font-size:12px;">
+                    Максимально значение 100 процентов!
+                </span>
+                """)
+
+    class Meta:
+        model = models.MasterSkills
+        fields = '__all__'
+
+
 @admin.register(models.Master)
 class MasterAdmin(admin.ModelAdmin):
     save_on_top = True
     list_display = ('name', 'get_image')
     list_display_links = ('name', 'get_image')
-    form = MasterAdminForm
+    form = MasterAdminAdminForm
 
     def get_image(self, obj):
         """Возвращает фото мастера"""
@@ -49,4 +73,24 @@ class MasterAdmin(admin.ModelAdmin):
         fields = '__all__'
 
 
-admin.site.register(models.WorksTattooMasters)
+@admin.register(models.MasterSkills)
+class MasterSkillsAdmin(admin.ModelAdmin):
+    save_on_top = True
+    list_display = ('name', 'value')
+    form = MasterSkillsAdminForm
+
+    # def add_view(self, request, form_url='', extra_context=None):
+    #     for item in self.model.objects.all():
+    #         if item.value >= 100:
+    #             self.message_user(
+    #                 request,
+    #                 'Максимальное значение - 100 %',
+    #                 messages.ERROR
+    #             )
+    #             continue
+    #         else:
+    #             return super().add_view(request, form_url, extra_context)
+
+    class Meta:
+        model = models.MasterSkills
+        fields = '__all__'

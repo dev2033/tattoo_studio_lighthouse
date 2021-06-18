@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.core.validators import MaxValueValidator
 
 
 class Master(models.Model):
@@ -25,14 +26,19 @@ class Master(models.Model):
         ordering = ["name"]
 
 
-class WorksTattooMasters(models.Model):
-    """Работы тату-мастеров"""
-    image = models.ImageField('Изображения', upload_to='works_masters/')
+class MasterSkills(models.Model):
+    """Умения мастера"""
+    name = models.CharField('Название', max_length=50)
+    value = models.PositiveSmallIntegerField(
+        verbose_name='Значение (%)',
+        default=1,
+        validators=[MaxValueValidator(100)]
+    )
 
     def __str__(self):
-        return f'{id} изображение'
+        return self.name
 
     class Meta:
-        verbose_name = "Работы мастеров"
-        verbose_name_plural = "Работы мастеров"
-        ordering = ["-id"]
+        verbose_name = "Умение мастера"
+        verbose_name_plural = "Умения мастера"
+        ordering = ["name"]

@@ -1,6 +1,6 @@
 from django.views.generic import ListView, DetailView
 
-from .models import Master, WorksTattooMasters
+from .models import Master
 
 
 class MastersListView(ListView):
