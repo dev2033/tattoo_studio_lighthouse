@@ -1,13 +1,20 @@
 
-.contact-area {
-    display: block;
-    visibility: hidden;
-    margin-top: -40px;
-    transition: 0.8s;
-    height: 50px;
+.hidden {
+    display: none;
 }
 
-.active-form{
-    margin: 0;
+.active-form {
     visibility: visible;
 }
+
+.open-form {
+    margin-top: -40px;
+    transition: 0.8s;
+}
+
+.close-form {
+    margin: 0;
+}
+
+
+

@@ -59,10 +59,12 @@
                         {% endfor %}
 
                     </div>
-                    <a class="appoinment-btn btn-record" id="content-btn">Записаться к мастеру</a>
+
+                    <a class="appoinment-btn" id="content-btn">Записаться к мастеру</a>
                 </div>
             </div>
-            <div class="contact-area ">
+
+            <div class="contact-area hidden" id="cont" >
                 <div class="container">
                     <div class="content">
                         <div class="col-md-12 col-sm-6 col-xs-12">
@@ -93,15 +95,30 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
+
 <script>
 
 let formBlock = document.querySelector('.contact-area')
 let btn = document.querySelector('.appoinment-btn')
+
 btn.addEventListener('click', (e) => {
-  e.preventDefault()
-  formBlock.classList.toggle('active-form')
+    
+    e.preventDefault()
+    
+    if (formBlock.classList.contains('hidden')) {
+        formBlock.classList.replace('hidden', 'active-form')
+        formBlock.classList.toggle('open-form')
+        formBlock.classList.remove('close-form')
+    }
+    else if (!formBlock.classList.contains('hidden')) {
+        formBlock.classList.replace('active-form', 'hidden')
+        formBlock.classList.remove('open-form')
+        formBlock.classList.add('close-form')
+    }
 })
+
 </script>
 {% endblock %}
