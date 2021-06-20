@@ -79,18 +79,6 @@ class MasterSkillsAdmin(admin.ModelAdmin):
     list_display = ('name', 'value')
     form = MasterSkillsAdminForm
 
-    # def add_view(self, request, form_url='', extra_context=None):
-    #     for item in self.model.objects.all():
-    #         if item.value >= 100:
-    #             self.message_user(
-    #                 request,
-    #                 'Максимальное значение - 100 %',
-    #                 messages.ERROR
-    #             )
-    #             continue
-    #         else:
-    #             return super().add_view(request, form_url, extra_context)
-
     class Meta:
         model = models.MasterSkills
         fields = '__all__'

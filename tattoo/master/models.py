@@ -28,6 +28,13 @@ class Master(models.Model):
 
 class MasterSkills(models.Model):
     """Умения мастера"""
+    master = models.ForeignKey(
+        Master,
+        on_delete=models.CASCADE,
+        verbose_name='Мастер',
+        default='',
+        related_name='master_skills'
+    )
     name = models.CharField('Название', max_length=50)
     value = models.PositiveSmallIntegerField(
         verbose_name='Значение (%)',
@@ -42,3 +49,25 @@ class MasterSkills(models.Model):
         verbose_name = "Умение мастера"
         verbose_name_plural = "Умения мастера"
         ordering = ["name"]
+
+
+class RecordToMasterModel(models.Model):
+    """Класс модели для записи клиента на сеанс"""
+    master = models.ForeignKey(
+        Master,
+        on_delete=models.CASCADE,
+        verbose_name='Мастер',
+        related_name='master_to_record',
+        default=''
+    )
+    name = models.CharField('Имя', max_length=50)
+    telegram_username = models.CharField('Username', max_length=100, default='')
+    message = models.TextField('Текст сообщения', max_length=500)
+
+    def __str__(self):
+        return f'{self.name} - {self.telegram_username}'
+
+    class Meta:
+        verbose_name = "Клиент"
+        verbose_name_plural = "Клиенты"
+        ordering = ["-name"]

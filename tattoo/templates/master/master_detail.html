@@ -45,34 +45,59 @@
                             <h3>{{ master.name }}</h3>
                             <span class="single-team">Тату-мастер</span>
                             <p>{{ master.about_master|safe }}</p>
-                            <div class="progress-wrap">
-                                <p>Tatoo Design</p>
-                                <div class="progress">
-                                    <div class="progress-bar wow slideInLeft" style="width: 90%;">
-                                        <span class="progress-persent"><span>10%</span></span>
+
+                            {% for skill in skills %}
+                                <div class="progress-wrap">
+                                    <p>{{ skill.name }}</p>
+                                    <div class="progress">
+                                        <div class="progress-bar wow slideInLeft" style="width: {{ skill.value }}%;">
+                                            <span class="progress-persent"><span>{{ skill.value }}%</span></span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="progress-wrap">
-                                <p>Tatoo Removal</p>
-                                <div class="progress">
-                                    <div class="progress-bar wow slideInLeft" style="width: 25%;">
-                                        <span class="progress-persent"><span>25%</span></span>
+                            {% endfor %}
+
+                        </div>
+                        <a class="appoinment-btn" id="content-btn">Записаться к мастеру</a>
+
+                    </div>
+
+                </div>
+                <div class="contact-area bg-1">
+                <div class="container">
+                    <div class="content">
+                        <div class="col-md-12 col-sm-6 col-xs-12">
+                            <div class="contact-form">
+                                <div class="cf-msg"></div>
+                                <form action="{% url 'record_to_master' master.id %}" method="post" id="cf">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <span>Имя</span>
+                                            {{ form.name }}
+                                        </div>
+                                        <div class="col-md-6 col-xs-12">
+                                            <span>Telegram Username</span>
+                                            {{ form.telegram_username }}
+                                        </div>
+                                        <div class="col-md-12  col-xs-12">
+                                            <span>Сообщение</span>
+                                            {{ form.message }}
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <button type="submit">Отправить</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="progress-wrap">
-                                <p>Tattoo Cover Up</p>
-                                <div class="progress">
-                                    <div class="progress-bar wow slideInLeft" style="width: 60%;">
-                                        <span class="progress-persent"><span>60%</span></span>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
-                        <a class="appoinment-btn" href="">Записаться к мастеру</a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script>
+
+</script>
 {% endblock %}
