@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
     <div class="breadcumb-area bg-img-5 black-opacity">
         <div class="container">
@@ -19,51 +20,49 @@
     </div>
 
     <div class="single-team-area bg-1 ptb-100">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-sm-5">
-                        <div class="single-team-img">
-                            <img src="{{ master.image.url }}" alt="">
-                        </div>
-                        <div class="socil-icon">
-                            <ul>
-                                <li>Соц. сети :</li>
-                                {% if master.vk %}
-                                    <li><a href="{{ master.vk }}"><i class="fa fa-vk"></i></a></li>
-                                {% endif %}
-                                {% if master.instagram %}
-                                    <li><a href="{{ master.instagram }}"><i class="fa fa-instagram"></i></a></li>
-                                {% endif %}
-                                {% if master.telegram %}
-                                    <li><a href="{{ master.telegram }}"><i class="fa fa-paper-plane"></i></a></li>
-                                {% endif %}
-                            </ul>
-                        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-5">
+                    <div class="single-team-img">
+                        <img src="{{ master.image.url }}" alt="">
                     </div>
-                    <div class="col-md-8 col-sm-7">
-                        <div class="single-team-wrap">
-                            <h3>{{ master.name }}</h3>
-                            <span class="single-team">Тату-мастер</span>
-                            <p>{{ master.about_master|safe }}</p>
+                    <div class="socil-icon">
+                        <ul>
+                            <li>Соц. сети :</li>
+                            {% if master.vk %}
+                                <li><a href="{{ master.vk }}"><i class="fa fa-vk"></i></a></li>
+                            {% endif %}
+                            {% if master.instagram %}
+                                <li><a href="{{ master.instagram }}"><i class="fa fa-instagram"></i></a></li>
+                            {% endif %}
+                            {% if master.telegram %}
+                                <li><a href="{{ master.telegram }}"><i class="fa fa-paper-plane"></i></a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-7">
+                    <div class="single-team-wrap">
+                        <h3>{{ master.name }}</h3>
+                        <span class="single-team">Тату-мастер</span>
+                        <p>{{ master.about_master|safe }}</p>
 
-                            {% for skill in skills %}
-                                <div class="progress-wrap">
-                                    <p>{{ skill.name }}</p>
-                                    <div class="progress">
-                                        <div class="progress-bar wow slideInLeft" style="width: {{ skill.value }}%;">
-                                            <span class="progress-persent"><span>{{ skill.value }}%</span></span>
-                                        </div>
+                        {% for skill in skills %}
+                            <div class="progress-wrap">
+                                <p>{{ skill.name }}</p>
+                                <div class="progress">
+                                    <div class="progress-bar wow slideInLeft" style="width: {{ skill.value }}%;">
+                                        <span class="progress-persent"><span>{{ skill.value }}%</span></span>
                                     </div>
                                 </div>
-                            {% endfor %}
-
-                        </div>
-                        <a class="appoinment-btn" id="content-btn">Записаться к мастеру</a>
+                            </div>
+                        {% endfor %}
 
                     </div>
-
+                    <a class="appoinment-btn btn-record" id="content-btn">Записаться к мастеру</a>
                 </div>
-                <div class="contact-area bg-1">
+            </div>
+            <div class="contact-area ">
                 <div class="container">
                     <div class="content">
                         <div class="col-md-12 col-sm-6 col-xs-12">
@@ -96,8 +95,13 @@
             </div>
         </div>
     </div>
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script>
 
+let formBlock = document.querySelector('.contact-area')
+let btn = document.querySelector('.appoinment-btn')
+btn.addEventListener('click', (e) => {
+  e.preventDefault()
+  formBlock.classList.toggle('active-form')
+})
 </script>
 {% endblock %}
