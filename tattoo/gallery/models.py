@@ -25,7 +25,7 @@ class Gallery(models.Model):
     image = models.ImageField('Изображение', upload_to='gallery/')
 
     def __str__(self):
-        return self.category
+        return self.category.name
 
     class Meta:
         verbose_name = "Татуировку"
