@@ -12,6 +12,5 @@ class GalleryView(ListView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
-        g = Gallery.objects.all()
         context['categories'] = CategoryTattoo.objects.all()
         return context

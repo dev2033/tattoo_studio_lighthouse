@@ -6,6 +6,7 @@ import requests
 
 from .forms import ContactForm
 from master.models import Master
+from .models import ContactModel
 
 
 class ContactView(View):

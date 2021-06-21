@@ -10,7 +10,7 @@ class ContactModel(models.Model):
     message = models.TextField('Текст сообщения', max_length=500)
 
     def __str__(self):
-        return f'{self.name} - {self.telegram_username}'
+        return self.name
 
     class Meta:
         verbose_name = "Контакт"
