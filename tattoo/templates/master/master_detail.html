@@ -64,7 +64,7 @@
                 </div>
             </div>
 
-            <div class="contact-area hidden" id="cont" >
+            <div class="contact-area hidden">
                 <div class="container">
                     <div class="content">
                         <div class="col-md-12 col-sm-6 col-xs-12">
@@ -100,23 +100,26 @@
 
 <script>
 
-let formBlock = document.querySelector('.contact-area')
-let btn = document.querySelector('.appoinment-btn')
+let formBlock = document.querySelector('.contact-area');
+let btn = document.querySelector('.appoinment-btn');
+let openForm = document.querySelector('.open-form');
 
 btn.addEventListener('click', (e) => {
     
     e.preventDefault()
     
     if (formBlock.classList.contains('hidden')) {
-        formBlock.classList.replace('hidden', 'active-form')
-        formBlock.classList.toggle('open-form')
-        formBlock.classList.remove('close-form')
+        formBlock.classList.replace('hidden', 'active-form');
+        // formBlock.classList.toggle('open-form');
+        // formBlock.classList.remove('close-form');
     }
     else if (!formBlock.classList.contains('hidden')) {
-        formBlock.classList.replace('active-form', 'hidden')
-        formBlock.classList.remove('open-form')
-        formBlock.classList.add('close-form')
+        formBlock.classList.replace('active-form', 'hidden');
+        // formBlock.classList.remove('open-form');
+        // formBlock.classList.add('close-form');
     }
+
+    
 })
 
 </script>
