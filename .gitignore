@@ -20,7 +20,8 @@ __pycache__/
 log.txt
 # C extensions
 *.so
-
+*.djcache
+django_cache
 # Distribution / packaging
 .Python
 build/
