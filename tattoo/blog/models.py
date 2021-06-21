@@ -25,7 +25,7 @@ class Post(models.Model):
         return reverse('post_detail', kwargs={'slug': self.slug})
 
     def get_comments(self):
-        return self.comment.all().order_by('-id')[:5]
+        return self.comment_post.order_by('-id')[:5]
 
     class Meta:
         verbose_name = "Пост"
@@ -56,7 +56,7 @@ class Comment(models.Model):
     telegram_username = models.CharField('Username', max_length=100)
     message = models.TextField('Сообщение', max_length=500)
     create_at = models.DateTimeField('Дата', auto_now_add=True)
-    post = models.ForeignKey(Post, related_name="comment",
+    post = models.ForeignKey(Post, related_name="comment_post",
                              on_delete=models.CASCADE,
                              verbose_name='Пост')
 
