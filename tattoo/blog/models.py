@@ -16,7 +16,6 @@ class Post(models.Model):
     tags = models.ManyToManyField('Tag', related_name='post_tags',
                                   verbose_name='Теги')
     created_at = models.DateTimeField('Дата публикации', auto_now_add=True)
-    views = models.IntegerField('Количество просмотров', default=0)
 
     def __str__(self):
         return self.title

@@ -13,22 +13,27 @@ class BaseView(View):
 
 class PostsListView(ListView):
     """Выводит список постов"""
-    queryset = Post.objects.select_related('author').prefetch_related('comment_post')
+    queryset = Post.objects.select_related('author')\
+        .prefetch_related('comment_post')\
+        .defer('tags', 'author__image', 'author__about_master',
+               'author__vk', 'author__telegram', 'author__instagram')
     context_object_name = 'posts'
     template_name = 'blog/posts_list.html'
     paginate_by = 9
 
 
 class PostDetail(DetailView):
-    """Выводит пост отдельно"""
-    queryset = Post.objects.select_related('author').prefetch_related('tags').prefetch_related('comment_post')
+    """Выводит конкретный пост"""
+    queryset = Post.objects.select_related('author').prefetch_related('tags')\
+        .prefetch_related('comment_post')
     context_object_name = 'post'
     template_name = 'blog/post_detail.html'
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
         post = context['post']
         context['comments'] = post.comment_post.all().order_by('-id')[:5]
+        context['posts'] = Post.objects.all().prefetch_related('tags')
         context['form'] = CommentForm()
         return context
 
@@ -69,10 +74,7 @@ class PostsByTagListView(ListView):
     paginate_by = 9
 
     def get_queryset(self):
-        return Post.objects.filter(tags__slug=self.kwargs['slug'])
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Записи по тегу: ' + str(
-            Tag.objects.get(slug=self.kwargs['slug']))
-        return context
+        return Post.objects.filter(tags__slug=self.kwargs['slug'])\
+            .select_related('author')\
+            .prefetch_related('tags')\
+            .prefetch_related('comment_post')

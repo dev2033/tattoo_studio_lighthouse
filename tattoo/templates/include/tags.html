@@ -1,9 +1,0 @@
-{% load cache %}
-
-{% cache 600 tags %}
-    <ul>
-        {% for tag in tags %}
-        <li><a href="{{ tag.get_absolute_url }}">{{ tag.title }} ({{ tag.post_tags.count }})</a></li>
-        {% endfor %}
-    </ul>
-{% endcache %}

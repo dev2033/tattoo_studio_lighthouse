@@ -37,10 +37,9 @@ class PostAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'title')
     search_fields = ('title',)
     list_filter = ('tags',)
-    readonly_fields = ('views', 'created_at', 'get_image')
-    fields = ('title', 'slug', 'tags', 'author',
-              'content', 'image', 'get_image',
-              'views', 'created_at')
+    readonly_fields = ('created_at', 'get_image')
+    fields = ('title', 'slug', 'tags', 'author', 'content', 'image',
+              'get_image', 'created_at')
 
     def get_image(self, obj):
         """Возвращает картинку новости в админке"""
