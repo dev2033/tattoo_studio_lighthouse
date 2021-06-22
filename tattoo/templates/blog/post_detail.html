@@ -34,7 +34,7 @@
                                 <ul class="blog-meta">
                                     <li><a href="#"><i class="fa fa-clock-o"></i> {{ post.created_at|date:"j" }} {{ post.created_at|date:"E" }}, {{ post.created_at|date:"Y" }}</a></li>
                                     <li><a href="#"><i class="fa fa-user"></i> {{ post.author }}</a></li>
-                                    <li><a href="#"><i class="fa fa-comments"></i> {{ post.get_comments.count }}</a></li>
+                                    <li><a href="#"><i class="fa fa-comments"></i> {{ post.comment_post.count }}</a></li>
                                 </ul>
                                 <h3>{{ post.title }}</h3>
                             </div>
@@ -54,7 +54,7 @@
                             </div>
                             <div class="container single-post__comment">
 
-                            {% for comment in post.get_comments %}
+                            {% for comment in comments %}
                             <ul>
                                 <li>
                                     <div class="post-img">
@@ -65,7 +65,7 @@
                                         <p style="max-width: 650px; word-wrap: break-word;">
                                             {{ comment.message|safe }}
                                         </p>
-                                        <p>{{ comment.create_at|date:"j" }} {{ comment.create_at|date:"E" }}, {{ comment.create_at|date:"Y" }}</p>
+                                        <p>{{ comment.create_at|date:"j E Y" }}</p>
                                     </div>
                                 </li>
                             </ul>

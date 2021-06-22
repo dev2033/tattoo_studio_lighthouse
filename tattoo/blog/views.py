@@ -13,7 +13,7 @@ class BaseView(View):
 
 class PostsListView(ListView):
     """Выводит список постов"""
-    model = Post
+    queryset = Post.objects.select_related('author').prefetch_related('comment_post')
     context_object_name = 'posts'
     template_name = 'blog/posts_list.html'
     paginate_by = 9
@@ -21,12 +21,14 @@ class PostsListView(ListView):
 
 class PostDetail(DetailView):
     """Выводит пост отдельно"""
-    model = Post
+    queryset = Post.objects.select_related('author').prefetch_related('tags').prefetch_related('comment_post')
     context_object_name = 'post'
     template_name = 'blog/post_detail.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        post = context['post']
+        context['comments'] = post.comment_post.all().order_by('-id')[:5]
         context['form'] = CommentForm()
         return context
 
