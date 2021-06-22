@@ -80,4 +80,6 @@ class PostsByTagListView(ListView):
         return Post.objects.filter(tags__slug=self.kwargs['slug'])\
             .select_related('author')\
             .prefetch_related('tags')\
-            .prefetch_related('comment_post')
+            .prefetch_related('comment_post')\
+            .defer('author__image', 'author__about_master', 'author__vk',
+                   'author__telegram', 'author__instagram')
