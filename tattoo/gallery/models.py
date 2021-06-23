@@ -30,5 +30,6 @@ class Gallery(models.Model):
     class Meta:
         verbose_name = "Татуировку"
         verbose_name_plural = "Татуировки"
+        ordering = ['-id']
 
 
