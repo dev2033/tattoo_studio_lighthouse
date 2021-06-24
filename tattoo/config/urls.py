@@ -5,6 +5,8 @@ from django.conf.urls.static import static
 
 import debug_toolbar
 
+from .utils import e_handler404
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -15,6 +17,8 @@ urlpatterns = [
     path('contact/', include('contact.urls')),
     path('gallery/', include('gallery.urls')),
 ]
+
+handler404 = e_handler404
 
 if settings.DEBUG:
     urlpatterns = [

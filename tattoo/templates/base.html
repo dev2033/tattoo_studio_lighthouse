@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Тату-студия маяк - {% block title %}Главная{% endblock %}</title>
+        <title>Тату-студия Якорь - {% block title %}Главная{% endblock %}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -23,11 +23,13 @@
         <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
         <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}' %}"></script>
     </head>
+
     <body>
 
         {% include 'include/header.html' %}
 
         {% block content %}
+
         <div class="slider-area">
             <div class="slider-active">
                 <div class="slider-items">
@@ -36,9 +38,9 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-offset-2 col-sm-10 col-xs-12 col-md-7 col-md-offset-5 text-right">
-                                    <h2>We Provide Forever.</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue porttitor felis, iaculis consectetur tortor varius vitae. </p>
-                                    <a href="#">Book Now</a>
+                                    <h2>Якорь | Тату Симферополь</h2>
+                                    <p>Атмосферная тату-студия в сердце Симферополя </p>
+                                    <a href="{% url 'masters_list' %}">Записаться</a>
                                 </div>
                             </div>
                         </div>
@@ -50,9 +52,9 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-7 col-sm-10 col-xs-12">
-                                    <h2>Tatto With Experien.</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue porttitor felis, iaculis consectetur tortor varius vitae. </p>
-                                    <a href="#">Book Now</a>
+                                    <h2>Якорь | Тату Симферополь</h2>
+                                    <p>Атмосферная тату-студия в сердце Симферополя </p>
+                                    <a href="{% url 'masters_list' %}">Записаться</a>
                                 </div>
                             </div>
                         </div>
@@ -65,9 +67,9 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-7 col-sm-10 col-xs-12">
-                                    <h2>Tatto With Experien.</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue porttitor felis, iaculis consectetur tortor varius vitae. </p>
-                                    <a href="#">Book Now</a>
+                                    <h2>Якорь | Тату Симферополь</h2>
+                                    <p>Атмосферная тату-студия в сердце Симферополя </p>
+                                    <a href="{% url 'masters_list' %}">Записаться</a>
                                 </div>
                             </div>
                         </div>
@@ -85,6 +87,7 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis nibh dapibus lectus pharetra, eu pellentesque quam iaculis.</p>
                             <p>Our Tattoo And Piercing Salon Is A Real Highlight Of The Whole Industry In The American Midwest! We’ve Been Opened As A Tattoo-Centric Institution For Years. During This Period Of Time We Were Able To Create Thousands Of Awesome Tattoos And Piercing For Thousands Of Happy Clients!</p>
                             <div class="faq-wrap">
+
                                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                     <div class="panel panel-default">
                                         <div class="panel-heading" id="headingOne">
@@ -96,10 +99,14 @@
                                         </div>
                                         <div id="collapseOne" class="panel-collapse collapse in">
                                             <div class="panel-body">
-                                                <p>Keep away from people who try to belittle your ambitions. Small peol always do that. Keep away from ast people who try to belittle your ambitions. Small peol always do that. Keep away from people who try to ast belittle your ambitions. Small peol always do that.</p>
+                                                   <p>  🤟 Красивая и качественная татуировка на всю жизнь</p>
+                                                   <p>  👌 Исправление и перекрытие некачественных работ</p>
+                                                   <p>  ✌️ Обновление и корректировка старых татуировок</p>
+                                                   <p>  ✊ Перекрытие шрамов и рубцов</p>
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="panel panel-default">
                                         <div class="panel-heading"   id="headingTwo">
                                             <h4 class="panel-title">
@@ -297,11 +304,10 @@ Vestibulum eget lorem vitae lectus luctus consectetur.</p>
             </div>
         </div>
 
-
-
         {% endblock content %}
 
         {% include 'include/footer.html' %}
+
         <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
         <script src="{% static 'js/owl.carousel.min.js' %}"></script>

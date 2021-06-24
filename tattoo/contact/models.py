@@ -31,3 +31,6 @@ class AdminTelegramId(models.Model):
     class Meta:
         verbose_name = "Телеграм ID"
         verbose_name_plural = "Телеграм ID"
+
+
+

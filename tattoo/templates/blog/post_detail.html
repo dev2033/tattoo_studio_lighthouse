@@ -54,7 +54,7 @@
                             </div>
                             <div class="container single-post__comment">
 
-                            {% for comment in comments %}
+                            {% for comment in post.comment_post.all|slice:5 %}
                             <ul>
                                 <li>
                                     <div class="post-img">
