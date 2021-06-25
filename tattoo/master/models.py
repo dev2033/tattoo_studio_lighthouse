@@ -7,7 +7,7 @@ class Master(models.Model):
     """Мастера"""
     name = models.CharField('Имя мастера', max_length=150)
     image = models.ImageField('Изображение мастера', upload_to='masters/')
-    about_master = models.TextField('Информация о мастере')
+    about_master = models.TextField('Информация о мастере', max_length=180)
     vk = models.CharField('Ссылка на ВК', max_length=255, blank=True, null=True)
     instagram = models.CharField('Ссылка на Instagram', max_length=255,
                                  blank=True, null=True)

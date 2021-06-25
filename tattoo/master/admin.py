@@ -20,8 +20,16 @@ class MasterAdminAdminForm(ModelForm):
                     Высота 1080 пикселов
                 </span>
                 """)
+        self.fields['about_master'].help_text = \
+            mark_safe(
+                """
+                <span style="color:green; font-size:14px;">
+                    Максимальный размер текста - 1550 символов (180-220 слов)
+                </span>
+                """)
 
-    about_master = forms.CharField(widget=CKEditorUploadingWidget())
+    about_master = forms.CharField(widget=CKEditorUploadingWidget(),
+                                   max_length=1550)
 
     class Meta:
         model = models.Master

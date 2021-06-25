@@ -23,9 +23,6 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('post_detail', kwargs={'slug': self.slug})
 
-    def get_comments(self):
-        return self.comment_post.order_by('-id')[:5]
-
     class Meta:
         verbose_name = "Пост"
         verbose_name_plural = "Посты"

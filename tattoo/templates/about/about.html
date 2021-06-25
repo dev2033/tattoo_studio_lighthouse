@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="breadcumb-area bg-img-5 black-opacity">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="breadcumb-wrap text-center">
+                    <h2>О нас</h2>
+                    <ul>
+                        <li><a href="{% url 'home' %}">Главная</a></li>
+                        <li>/</li>
+                        <li class="active">О нас</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="about-area ptb-100 bg-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-8 col-xs-12">
+                <div class="about-wrap">
+                    <h3>Our Tattoos Last Longer Than Most Marriages.</h3>
+                    <p>Praesent in erat risus. Cras bibendum orci pharetra vehicula hendrerit. Proin blandit lorem sed aliquet cursus. Pellentesque lobortis nunc et libero auctor, non tincidunt nisi molestie.</p>
+                    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus tincidunt pulvinar enim, eget dignissim felis facilisis ac. Sed quis vehicula nisi. Integer quis neque at sapien varius vehicula. Suspendisse auctor dapibus tempus.</p>
+                    <a href="about.html">View All</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-4 hidden-xs">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 ">
+                        <div class="about-img">
+                            <img src="assets/images/about/1.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-6 hidden-sm">
+                        <div class="about-img">
+                            <img src="assets/images/about/2.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="about-area ptb-100 bg-2 about-area2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 hidden-sm hidden-xs">
+                <div class="about-img">
+                    <img src="assets/images/about/3.png" alt="">
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <div class="about-wrap">
+                    <h3>Our Tattoos Last Longer Than Most Marriages.</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis nibh dapibus lectus pharetra, eu pellentesque quam iaculis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis nibh dapibus Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, aliquam.consectetur adipisicing elit. Vero, aliquam.dipiscing elit. Etiam mattis nibh dapibus</p>
+                    <p>Integer quis sem lectus. Suspendisse ultrices odio elit. Praesent rhoncus, magna sed pulvinar aliquet, libero ligula ornare risus, eu viverra orci lorem fringilla velit. Curabitur a felis efficitur, tincidunt magna eu, accumsan eros. Nullam eget sapien dapibus, condimentum mi vitae, dapibus ante. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut facilisis enim velit. Integer hendrerit nisl id nulla vestibulum, eget vestibulum orci fermentum. Phasellus urna leo, auctor in elit sed, rhoncus viverra est. Integer nec venenatis mauris, nec aliquam magna.</p>
+                    <a href="about.html">View All</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

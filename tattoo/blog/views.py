@@ -1,14 +1,7 @@
-from django.shortcuts import render
-from django.views.generic import View, ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView
 
-from .models import Post, Tag, Comment
+from .models import Post, Comment
 from .forms import CommentForm
-
-
-class BaseView(View):
-    """Выводит главную страницу"""
-    def get(self, request, *args, **kwargs):
-        return render(request, 'base.html')
 
 
 class PostsListView(ListView):
@@ -35,8 +28,6 @@ class PostDetail(DetailView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
-        post = context['post']
-        # context['comments'] = post.comment_post.all().order_by('-id')[:5]
         context['form'] = CommentForm()
         return context
 
