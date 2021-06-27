@@ -23,5 +23,17 @@ class InfoAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'name')
 
 
+@admin.register(models.Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name', 'slug')
+    prepopulated_fields = {'slug': ('name',)}
+
+
+@admin.register(models.Article)
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ('title', 'slug')
+    prepopulated_fields = {'slug': ('title',)}
+
+
 admin.site.site_title = 'Административная панель сайта Тату-студии "Якорь"'
 admin.site.site_header = 'Административная панель сайта Тату-студии "Якорь"'
